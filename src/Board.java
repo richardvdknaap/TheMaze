@@ -40,7 +40,17 @@ public class Board extends JPanel implements ActionListener{
         }
 
         if(m.getMap(p.getTileX(), p.getTileY()).equals("b")) {
+            if(k.getAmountKey() >= 1 ){
+                b.changeBarricade();
+            }
 
+        }
+
+        if(m.getMap(p.getTileX(), p.getTileY()).equals("s")) {
+            k.captureKey();
+            k.changeKey();
+            System.out.println("key captured");
+            System.out.println(k.getAmountKey());
 
         }
 
@@ -89,25 +99,55 @@ public class Board extends JPanel implements ActionListener{
 
 
             if(keycode == KeyEvent.VK_W){
-                if(!m.getMap(p.getTileX(),p.getTileY() - 1).equals("w")){
-                    p.move(0,-1);}
+                if(m.getMap(p.getTileX(),p.getTileY() - 1).equals("w")){
+                    p.move(0,0);}
+
+                else if(m.getMap(p.getTileX(),p.getTileY() -1).equals("b")&&k.getAmountKey()!=1){
+                    p.move(0, 0);
+                }
+                else{
+                    p.move(0,-1);
+                }
+
 
 
             }
             if(keycode == KeyEvent.VK_S){
-                if(!m.getMap(p.getTileX(),p.getTileY() + 1).equals("w")){
-                p.move(0,1);}
+                if(m.getMap(p.getTileX(),p.getTileY() + 1).equals("w")){
+                    p.move(0,0);}
 
+                else if(m.getMap(p.getTileX(),p.getTileY() +1).equals("b")&&k.getAmountKey()!=1){
+                    p.move(0, 0);
+                }
+                else{
+                    p.move(0,1);
+                }
 
             }
             if(keycode == KeyEvent.VK_A){
-                if(!m.getMap(p.getTileX() - 1,p.getTileY()).equals("w")){
-                p.move(-1,0);}
+                if(m.getMap(p.getTileX() - 1,p.getTileY()).equals("w")){
+                    p.move(0,0);}
+
+                else if(m.getMap(p.getTileX() -1 ,p.getTileY()).equals("b")&&k.getAmountKey()!=1){
+                    p.move(0, 0);
+                }
+                else{
+                    p.move(-1,0);
+                }
+
 
             }
             if(keycode == KeyEvent.VK_D){
-                if(!m.getMap(p.getTileX() + 1,p.getTileY()).equals("w")){
-                p.move(1,0);}
+                if(m.getMap(p.getTileX() + 1,p.getTileY()).equals("w")){
+                    p.move(0,0);}
+
+                else if(m.getMap(p.getTileX() + 1,p.getTileY()).equals("b")&&k.getAmountKey()!=1){
+                    p.move(0, 0);
+                }
+                else{
+                    p.move(1,0);
+                }
+
 
             }
 

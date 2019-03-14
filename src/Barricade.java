@@ -19,6 +19,10 @@ public class Barricade {
 
     }
 
+    public void changeBarricade(){
+        this.barricade = new ImageIcon("Sprites\\grass.png").getImage();
+    }
+
 
 
 }

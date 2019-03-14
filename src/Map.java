@@ -9,7 +9,6 @@ public class Map {
 
     private Scanner m;
     private String Map[] = new String[14];
-    private Image grass, wall,barricade,sleutel,finish;
 
     public Map(){
 
