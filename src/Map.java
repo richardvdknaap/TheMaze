@@ -38,10 +38,6 @@ public class Map {
     }
 
 
-    public Image getFinish(){
-        return finish;
-    }
-
 
 
     public String getMap(int x, int y){
