@@ -9,22 +9,8 @@ public class Map {
 
     private Scanner m;
     private String Map[] = new String[14];
-    private Image grass, wall,barricade,sleutel,finish;
 
     public Map(){
-
-        ImageIcon img = new ImageIcon("Sprites\\grass.png");
-        grass = img.getImage();
-        img = new ImageIcon("Sprites\\Muur.png");
-        wall = img.getImage();
-        img = new ImageIcon("Sprites\\barricade.png");
-        barricade = img.getImage();
-        img = new ImageIcon("Sprites\\sleutel.png");
-        sleutel = img.getImage();
-        img = new ImageIcon("Sprites\\finish.png");
-        finish = img.getImage();
-
-
 
         openFile();
         readFile();
@@ -33,26 +19,6 @@ public class Map {
     }
 
 
-    public Image getGrass(){
-        return grass;
-    }
-
-    public Image getWall(){
-        return wall;
-    }
-
-    public Image getBarricade(){
-        return  barricade;
-
-
-    }
-    public Image getSleutel(){
-        return sleutel;
-    }
-
-    public Image getFinish(){
-        return finish;
-    }
 
 
 

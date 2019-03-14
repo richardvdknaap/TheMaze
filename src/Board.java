@@ -9,13 +9,26 @@ public class Board extends JPanel implements ActionListener{
 
     private Map m;
     private String Message = "";
+    private Barricade b;
+    private Key k;
+    private Wall w;
+    private Grass n;
+    private Finish f;
+    private Inventory i;
 
 
 
     public Board(){
-
+        i = new Inventory();
         m = new Map();
         p = new Player();
+        b = new Barricade();
+        k = new Key();
+        n = new Grass();
+        f = new Finish();
+        w = new Wall();
+
+
         timer = new Timer(25, this);
         addKeyListener(new Al());
         setFocusable(true);
@@ -25,6 +38,22 @@ public class Board extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e){
         if(m.getMap(p.getTileX(), p.getTileY()).equals("f")){
             Message = "Winner";
+        }
+
+        if(m.getMap(p.getTileX(), p.getTileY()).equals("b")) {
+            if(k.getAmountKey() >= 1 ){
+                b.changeBarricade();
+            }
+
+        }
+
+        if(m.getMap(p.getTileX(), p.getTileY()).equals("s")) {
+            k.captureKey();
+            k.changeKey();
+            System.out.println("key captured");
+            System.out.println(k.getAmountKey());
+            b.changeBarricade();
+
         }
 
 
@@ -38,24 +67,25 @@ public class Board extends JPanel implements ActionListener{
         for(int y = 0; y < 14; y++){
             for(int x = 0; x < 14; x++){
                 if(m.getMap(x, y).equals("g")){
-                    g.drawImage(m.getGrass(),x * 32, y*32,null);
+                    g.drawImage(n.getGrass(),x * 32, y*32,null);
                 }
                 if(m.getMap(x, y).equals("f")){
-                    g.drawImage(m.getFinish(),x * 32, y*32,null);
+                    g.drawImage(f.getFinish(),x * 32, y*32,null);
                 }
                 if(m.getMap(x, y).equals("w")){
-                    g.drawImage(m.getWall(),x * 32, y*32,null);
+                    g.drawImage(w.getWall(),x * 32, y*32,null);
                 }
                 if(m.getMap(x, y).equals("s")){
-                    g.drawImage(m.getSleutel(),x * 32, y*32,null);
+                    g.drawImage(k.getKey(),x * 32, y*32,null);
                 }
                 if(m.getMap(x, y).equals("b")){
-                    g.drawImage(m.getBarricade(),x * 32, y*32,null);
+                    b.getXY(x,y);
+                    g.drawImage(b.getBarricade(),x * 32, y*32,null);
                 }
             }
         }
+        g.drawString(i.invKey(),500,50);
         g.drawString(Message,50,50);
-
         g.drawImage(p.getPlayer(),p.getTileX() * 32,p.getTileY()* 32,null);
 
     }
@@ -66,26 +96,61 @@ public class Board extends JPanel implements ActionListener{
 
             int keycode = e.getKeyCode();
 
+            if(keycode == KeyEvent.VK_ESCAPE){
+                System.exit(0);
+            }
+
+
             if(keycode == KeyEvent.VK_W){
-                if(!m.getMap(p.getTileX(),p.getTileY() - 1).equals("w")){
-                    p.move(0,-1);}
+                if(m.getMap(p.getTileX(),p.getTileY() - 1).equals("w")){
+                    p.move(0,0);}
+
+                else if(m.getMap(p.getTileX(),p.getTileY() -1).equals("b")&&k.getAmountKey()!=1){
+                    p.move(0, 0);
+                }
+                else{
+                    p.move(0,-1);
+                }
+
 
 
             }
             if(keycode == KeyEvent.VK_S){
-                if(!m.getMap(p.getTileX(),p.getTileY() + 1).equals("w")){
-                p.move(0,1);}
+                if(m.getMap(p.getTileX(),p.getTileY() + 1).equals("w")){
+                    p.move(0,0);}
 
+                else if(m.getMap(p.getTileX(),p.getTileY() +1).equals("b")&&k.getAmountKey()!=1){
+                    p.move(0, 0);
+                }
+                else{
+                    p.move(0,1);
+                }
 
             }
             if(keycode == KeyEvent.VK_A){
-                if(!m.getMap(p.getTileX() - 1,p.getTileY()).equals("w")){
-                p.move(-1,0);}
+                if(m.getMap(p.getTileX() - 1,p.getTileY()).equals("w")){
+                    p.move(0,0);}
+
+                else if(m.getMap(p.getTileX() -1 ,p.getTileY()).equals("b")&&k.getAmountKey()!=1){
+                    p.move(0, 0);
+                }
+                else{
+                    p.move(-1,0);
+                }
+
 
             }
             if(keycode == KeyEvent.VK_D){
-                if(!m.getMap(p.getTileX() + 1,p.getTileY()).equals("w")){
-                p.move(1,0);}
+                if(m.getMap(p.getTileX() + 1,p.getTileY()).equals("w")){
+                    p.move(0,0);}
+
+                else if(m.getMap(p.getTileX() + 1,p.getTileY()).equals("b")&&k.getAmountKey()!=1){
+                    p.move(0, 0);
+                }
+                else{
+                    p.move(1,0);
+                }
+
 
             }
 
