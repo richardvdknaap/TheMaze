@@ -11,8 +11,8 @@ public class Board extends JPanel implements ActionListener{
     private String Message = "";
     private Barricade b;
     private Key k;
-=======
     private Wall w;
+    private Grass n;
 
 
 
@@ -22,8 +22,8 @@ public class Board extends JPanel implements ActionListener{
         p = new Player();
         b = new Barricade();
         k = new Key();
-=======
         w = new Wall();
+        n = new Grass();
         timer = new Timer(25, this);
         addKeyListener(new Al());
         setFocusable(true);
@@ -51,7 +51,7 @@ public class Board extends JPanel implements ActionListener{
         for(int y = 0; y < 14; y++){
             for(int x = 0; x < 14; x++){
                 if(m.getMap(x, y).equals("g")){
-                    g.drawImage(m.getGrass(),x * 32, y*32,null);
+                    g.drawImage(n.getGrass(),x * 32, y*32,null);
                 }
                 if(m.getMap(x, y).equals("f")){
                     g.drawImage(m.getFinish(),x * 32, y*32,null);

@@ -13,29 +13,12 @@ public class Map {
 
     public Map(){
 
-        ImageIcon img = new ImageIcon("Sprites\\grass.png");
-        grass = img.getImage();
-        img = new ImageIcon("Sprites\\Muur.png");
-        wall = img.getImage();
-        img = new ImageIcon("Sprites\\barricade.png");
-        barricade = img.getImage();
-        img = new ImageIcon("Sprites\\Sleutel.png");
-        sleutel = img.getImage();
-        img = new ImageIcon("Sprites\\finish.png");
-        finish = img.getImage();
-
-
-
         openFile();
         readFile();
         closeFile();
 
     }
 
-
-    public Image getGrass(){
-        return grass;
-    }
 
 
     public Image getFinish(){
