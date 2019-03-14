@@ -37,9 +37,6 @@ public class Map {
         return grass;
     }
 
-    public Image getWall(){
-        return wall;
-    }
 
     public Image getFinish(){
         return finish;
