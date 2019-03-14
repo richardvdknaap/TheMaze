@@ -10,6 +10,7 @@ public class Board extends JPanel implements ActionListener{
     private Map m;
     private String Message = "";
     private Barricade b;
+    private Key k;
 
 
 
@@ -18,6 +19,7 @@ public class Board extends JPanel implements ActionListener{
         m = new Map();
         p = new Player();
         b = new Barricade();
+        k = new Key();
         timer = new Timer(25, this);
         addKeyListener(new Al());
         setFocusable(true);
@@ -54,7 +56,7 @@ public class Board extends JPanel implements ActionListener{
                     g.drawImage(m.getWall(),x * 32, y*32,null);
                 }
                 if(m.getMap(x, y).equals("s")){
-                    g.drawImage(m.getSleutel(),x * 32, y*32,null);
+                    g.drawImage(k.getKey(),x * 32, y*32,null);
                 }
                 if(m.getMap(x, y).equals("b")){
                     g.drawImage(b.getBarricade(),x * 32, y*32,null);
