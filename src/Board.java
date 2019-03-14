@@ -14,19 +14,20 @@ public class Board extends JPanel implements ActionListener{
     private Wall w;
     private Grass n;
     private Finish f;
+    private Inventory i;
 
 
 
     public Board(){
-
+        i = new Inventory();
         m = new Map();
         p = new Player();
         b = new Barricade();
         k = new Key();
-        w = new Wall();
         n = new Grass();
         f = new Finish();
         w = new Wall();
+
 
         timer = new Timer(25, this);
         addKeyListener(new Al());
@@ -40,7 +41,7 @@ public class Board extends JPanel implements ActionListener{
         }
 
         if(m.getMap(p.getTileX(), p.getTileY()).equals("b")) {
-
+            b.changeBarricade();
 
         }
 
@@ -67,12 +68,13 @@ public class Board extends JPanel implements ActionListener{
                     g.drawImage(k.getKey(),x * 32, y*32,null);
                 }
                 if(m.getMap(x, y).equals("b")){
+                    b.getXY(x,y);
                     g.drawImage(b.getBarricade(),x * 32, y*32,null);
                 }
             }
         }
+        g.drawString(i.invKey(),500,50);
         g.drawString(Message,50,50);
-
         g.drawImage(p.getPlayer(),p.getTileX() * 32,p.getTileY()* 32,null);
 
     }
