@@ -66,6 +66,11 @@ public class Board extends JPanel implements ActionListener{
 
             int keycode = e.getKeyCode();
 
+            if(keycode == KeyEvent.VK_ESCAPE){
+                System.exit(0);
+            }
+
+
             if(keycode == KeyEvent.VK_W){
                 if(!m.getMap(p.getTileX(),p.getTileY() - 1).equals("w")){
                     p.move(0,-1);}
