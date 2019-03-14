@@ -41,11 +41,7 @@ public class Map {
         return wall;
     }
 
-    public Image getBarricade(){
-        return  barricade;
-
-
-    }
+    
     public Image getSleutel(){
         return sleutel;
     }
