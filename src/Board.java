@@ -50,9 +50,8 @@ public class Board extends JPanel implements ActionListener{
         if(m.getMap(p.getTileX(), p.getTileY()).equals("s")) {
             k.captureKey();
             k.changeKey();
-            System.out.println("key captured");
-            System.out.println(k.getAmountKey());
-            b.changeBarricade();
+            //System.out.println("key captured");
+            //System.out.println(k.getAmountKey());
 
         }
 
@@ -105,6 +104,11 @@ public class Board extends JPanel implements ActionListener{
                 if(m.getMap(p.getTileX(),p.getTileY() - 1).equals("w")){
                     p.move(0,0);}
 
+                else if(m.getMap(p.getTileX(),p.getTileY() -1).equals("b")&&k.getAmountKey()==1){
+                    p.move(0, -1);
+                    b.changeBarricade();
+                }
+
                 else if(m.getMap(p.getTileX(),p.getTileY() -1).equals("b")&&k.getAmountKey()!=1){
                     p.move(0, 0);
                 }
@@ -119,6 +123,11 @@ public class Board extends JPanel implements ActionListener{
                 if(m.getMap(p.getTileX(),p.getTileY() + 1).equals("w")){
                     p.move(0,0);}
 
+                else if(m.getMap(p.getTileX(),p.getTileY() +1).equals("b")&&k.getAmountKey()==1){
+                    p.move(0, 1);
+                    b.changeBarricade();
+                }
+
                 else if(m.getMap(p.getTileX(),p.getTileY() +1).equals("b")&&k.getAmountKey()!=1){
                     p.move(0, 0);
                 }
@@ -131,6 +140,10 @@ public class Board extends JPanel implements ActionListener{
                 if(m.getMap(p.getTileX() - 1,p.getTileY()).equals("w")){
                     p.move(0,0);}
 
+                else if(m.getMap(p.getTileX() -1 ,p.getTileY()).equals("b")&&k.getAmountKey()==1){
+                    p.move(-1, 0);
+                    b.changeBarricade();
+                }
                 else if(m.getMap(p.getTileX() -1 ,p.getTileY()).equals("b")&&k.getAmountKey()!=1){
                     p.move(0, 0);
                 }
@@ -143,6 +156,11 @@ public class Board extends JPanel implements ActionListener{
             if(keycode == KeyEvent.VK_D){
                 if(m.getMap(p.getTileX() + 1,p.getTileY()).equals("w")){
                     p.move(0,0);}
+
+                else if(m.getMap(p.getTileX() + 1,p.getTileY()).equals("b")&&k.getAmountKey()==1){
+                    p.move(1, 0);
+                    b.changeBarricade();
+                }
 
                 else if(m.getMap(p.getTileX() + 1,p.getTileY()).equals("b")&&k.getAmountKey()!=1){
                     p.move(0, 0);
