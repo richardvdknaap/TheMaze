@@ -42,7 +42,7 @@ public class Board extends JPanel implements ActionListener{
 
         if(m.getMap(p.getTileX(), p.getTileY()).equals("b")) {
             if(k.getAmountKey() >= 1 ){
-                b.changeBarricade();
+
             }
 
         }
@@ -52,9 +52,14 @@ public class Board extends JPanel implements ActionListener{
             k.changeKey();
             System.out.println("key captured");
             System.out.println(k.getAmountKey());
-            b.changeBarricade();
+
 
         }
+        if(m.getMap(p.getTileX(),p.getTileY()) == m.getMap(b.getX(),b.getY())){
+            b.changeBarricade();
+            }
+
+
 
 
         repaint();
@@ -67,26 +72,26 @@ public class Board extends JPanel implements ActionListener{
         for(int y = 0; y < 14; y++){
             for(int x = 0; x < 14; x++){
                 if(m.getMap(x, y).equals("g")){
-                    g.drawImage(n.getGrass(),x * 32, y*32,null);
+                    g.drawImage(n.getGrass(),x * 32, y*32,this);
                 }
                 if(m.getMap(x, y).equals("f")){
-                    g.drawImage(f.getFinish(),x * 32, y*32,null);
+                    g.drawImage(f.getFinish(),x * 32, y*32,this);
                 }
                 if(m.getMap(x, y).equals("w")){
-                    g.drawImage(w.getWall(),x * 32, y*32,null);
+                    g.drawImage(w.getWall(),x * 32, y*32,this);
                 }
                 if(m.getMap(x, y).equals("s")){
-                    g.drawImage(k.getKey(),x * 32, y*32,null);
+                    g.drawImage(k.getKey(),x * 32, y*32,this);
                 }
                 if(m.getMap(x, y).equals("b")){
-                    b.getXY(x,y);
-                    g.drawImage(b.getBarricade(),x * 32, y*32,null);
+                    g.drawImage(b.getBarricade(),x * 32, y*32,this);
                 }
             }
         }
         g.drawString(i.invKey(),500,50);
         g.drawString(Message,50,50);
         g.drawImage(p.getPlayer(),p.getTileX() * 32,p.getTileY()* 32,null);
+
 
     }
 
@@ -98,6 +103,11 @@ public class Board extends JPanel implements ActionListener{
 
             if(keycode == KeyEvent.VK_ESCAPE){
                 System.exit(0);
+            }
+
+            if (keycode == KeyEvent.VK_R) {
+
+                new Maze();
             }
 
 

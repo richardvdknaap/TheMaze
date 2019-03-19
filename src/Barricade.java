@@ -4,20 +4,28 @@ import java.awt.*;
 public class Barricade {
 
     private Image barricade;
-    private int x,y;
+    private int Tx,Ty;
+
+    Barricade myBarricade = new Barricade();
 
 
     public Barricade(){
 
-        ImageIcon img = new ImageIcon("Sprites\\barricade.png");
-        barricade = img.getImage();
+        myBarricade.getX(3);
+        myBarricade.getY(11);
+        myBarricade.setImage();
 
     }
 
-    public void getXY(int xs, int ys){
-        this.x = xs;
-        this.y = ys;
-        System.out.println(this.y + " " + this.x);
+    public int getX(int X){
+        return X = Tx;
+
+
+    }
+
+    public int getY(int Y){
+        return Y = Ty;
+
     }
 
 
@@ -29,10 +37,18 @@ public class Barricade {
 
     public void changeBarricade(){
         this.barricade = new ImageIcon("Sprites\\grass.png").getImage();
-        //if(hit & key == true) {
-            this.barricade = new Grass().getGrass();
-        //}
+        this.barricade = new Grass().getGrass();
+
     }
+
+    public void setImage(){
+        ImageIcon img = new ImageIcon("Sprites\\barricade.png");
+        barricade = img.getImage();
+    }
+
+
+
+
 
 
 

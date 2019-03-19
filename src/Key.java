@@ -4,7 +4,8 @@ import java.awt.*;
 public class Key {
 
     private Image key;
-    private int amountKey;
+    private static int amountKey;
+
 
 
     public Key() {
@@ -26,12 +27,12 @@ public class Key {
         }
     }
 
-    public int getAmountKey() {
+    public static int getAmountKey() {
         return amountKey;
     }
 
     public void changeKey(){
-        this.key = new Wall().getWall();
+        this.key = new Grass().getGrass();
     }
 
 }

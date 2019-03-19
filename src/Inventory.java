@@ -3,12 +3,13 @@ import java.awt.*;
 
 public class Inventory extends JPanel{
 
-
+    private Key k;
     private String key = "Key: ";
+
 
     public String invKey(){
 
-       return key;// + key.GetAmountKey();
 
+        return key + Key.getAmountKey();
     }
 }
