@@ -73,15 +73,7 @@ public class Board extends JPanel implements ActionListener{
         if(m.getMap(p.getTileX(), p.getTileY()).equals("s")) {
             k.captureKey();
             k.changeKey();
-            System.out.println("key captured");
-            System.out.println(k.getAmountKey());
-
         }
-        /*if(m.getMap(p.getTileX(),p.getTileY()) == m.getMap(b.getX(),b.getY())){
-            b.changeBarricade();
-            }*/
-
-
 
 
         repaint();
@@ -93,7 +85,6 @@ public class Board extends JPanel implements ActionListener{
         for (Key key : keys){
             g.drawImage(key.getKey(), key.getTileX()*32, key.getTileY()*32, this);
         }
-        g.drawImage(p.getPlayer(),p.getTileX() * 32,p.getTileY()* 32,null);
     }
 
     public void paintComponent(Graphics g){
@@ -102,19 +93,13 @@ public class Board extends JPanel implements ActionListener{
         for(int y = 0; y < 14; y++){
             for(int x = 0; x < 14; x++){
                 if(m.getMap(x, y).equals("g")){
-                    g.drawImage(n.getGrass(),x * 32, y*32,this);
+                    g.drawImage(n.getGrass(),x * 32, y*32,null);
                 }
                 if(m.getMap(x, y).equals("f")){
-                    g.drawImage(f.getFinish(),x * 32, y*32,this);
+                    g.drawImage(f.getFinish(),x * 32, y*32,null);
                 }
                 if(m.getMap(x, y).equals("w")){
-                    g.drawImage(w.getWall(),x * 32, y*32,this);
-                }
-                if(m.getMap(x, y).equals("s")){
-                    g.drawImage(k.getKey(),x * 32, y*32,this);
-                }
-                if(m.getMap(x, y).equals("b")){
-                    //g.drawImage(b.getBarricade(),x * 32, y*32,this);
+                    g.drawImage(w.getWall(),x * 32, y*32,null);
                 }
 
             }
@@ -122,8 +107,8 @@ public class Board extends JPanel implements ActionListener{
         g.drawString(i.invKey(),500,50);
         g.drawString(Message,50,50);
         drawObjects(g);
-       // g.drawImage(k.getKey(),k.getTileX() * 32, k.getTileY()*32,null);
-
+        g.drawImage(k.getKey(),k.getTileX() * 32, k.getTileY()*32,null);
+        g.drawImage(p.getPlayer(),p.getTileX() * 32,p.getTileY()* 32,null);
 
     }
 
@@ -135,11 +120,6 @@ public class Board extends JPanel implements ActionListener{
 
             if(keycode == KeyEvent.VK_ESCAPE){
                 System.exit(0);
-            }
-
-            if (keycode == KeyEvent.VK_R) {
-
-                new Maze();
             }
 
 

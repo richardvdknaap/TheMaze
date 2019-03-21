@@ -4,9 +4,8 @@ import java.awt.*;
 public class Key {
 
     private Image key;
-    private static int amountKey;
-
     private int tileX, tileY;
+    private static int amountKey;
 
 
     public Key(int x, int y) {
