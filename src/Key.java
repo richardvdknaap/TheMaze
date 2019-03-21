@@ -6,14 +6,24 @@ public class Key {
     private Image key;
     private static int amountKey;
 
+    private int tileX, tileY;
 
 
-    public Key() {
+    public Key(int x, int y) {
 
+        this.tileX = x;
+        this.tileY = y;
         ImageIcon img = new ImageIcon("Sprites\\sleutel.png");
         key = img.getImage();
 
 
+    }
+    public int getTileX(){
+        return tileX;
+    }
+
+    public int getTileY(){
+        return tileY;
     }
 
     public Image getKey() {

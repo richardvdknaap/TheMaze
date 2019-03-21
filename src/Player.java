@@ -8,17 +8,16 @@ public class Player {
     private Image player;
 
 
-    public Player(){
+    public Player(int x, int y){
 
         ImageIcon img = new ImageIcon("Sprites\\Guy2.png");
         player = img.getImage();
+        this.tileX = x;
+        this.tileY = y;
 
-
-
-        tileX = 1;
-        tileY = 1;
 
     }
+
 
     public  Image getPlayer(){
         return player;
