@@ -52,7 +52,6 @@ public class Board extends JPanel implements ActionListener{
             k.changeKey();
             System.out.println("key captured");
             System.out.println(k.getAmountKey());
-            b.changeBarricade();
 
         }
 

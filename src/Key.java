@@ -31,7 +31,8 @@ public class Key {
     }
 
     public void changeKey(){
-        this.key = new Wall().getWall();
+        this.key = new Grass().getGrass();
     }
 
 }
+
