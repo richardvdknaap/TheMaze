@@ -4,15 +4,25 @@ import java.awt.*;
 public class Key {
 
     private Image key;
-    private int amountKey;
+    private int tileX, tileY;
+    private static int amountKey;
 
 
-    public Key() {
+    public Key(int x, int y) {
 
+        this.tileX = x;
+        this.tileY = y;
         ImageIcon img = new ImageIcon("Sprites\\sleutel.png");
         key = img.getImage();
 
 
+    }
+    public int getTileX(){
+        return tileX;
+    }
+
+    public int getTileY(){
+        return tileY;
     }
 
     public Image getKey() {
@@ -26,12 +36,12 @@ public class Key {
         }
     }
 
-    public int getAmountKey() {
+    public static int getAmountKey() {
         return amountKey;
     }
 
     public void changeKey(){
-        this.key = new Wall().getWall();
+        this.key = new Grass().getGrass();
     }
 
 }

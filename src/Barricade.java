@@ -1,37 +1,35 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Barricade {
+public class Barricade{
 
     private Image barricade;
-    private int x,y;
+    private int tileX,tileY;
 
-
-    public Barricade(){
-
+    public Barricade(int x, int y){
         ImageIcon img = new ImageIcon("Sprites\\barricade.png");
         barricade = img.getImage();
 
-    }
+        this.tileX = x;
+        this.tileY = y;
 
-    public void getXY(int xs, int ys){
-        this.x = xs;
-        this.y = ys;
-        System.out.println(this.y + " " + this.x);
     }
 
 
     public Image getBarricade(){
-        return  this.barricade;
+        return  barricade;
+    }
 
+    public int getTileX(){
+        return tileX;
+    }
 
+    public int getTileY(){
+        return tileY;
     }
 
     public void changeBarricade(){
-        this.barricade = new ImageIcon("Sprites\\grass.png").getImage();
-        //if(hit & key == true) {
             this.barricade = new Grass().getGrass();
-        //}
     }
 
 
