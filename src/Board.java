@@ -20,6 +20,7 @@ public class Board extends JPanel implements ActionListener{
     private Inventory i;
     private final int[][] barricadepos = {{3, 11}, {2, 2}, {2, 3}};
     private final int[][] keypos = {{4,6},{9,4}};
+    ////////mhhfdsghghjgj
 
 
 
