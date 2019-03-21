@@ -19,6 +19,7 @@ public class Board extends JPanel implements ActionListener{
     private final int[][] keypos = {{4,6},{9,4}};
 
 
+
     public Board(){
         i = new Inventory();
         m = new Map();
