@@ -13,7 +13,6 @@ public class Board extends JPanel implements ActionListener{
     private String Message = "";
     private List<Barricade> barricades;
     private List<Key> keys;
-    private Key k;
     private Wall w;
     private Grass n;
     private Finish f;
@@ -21,13 +20,16 @@ public class Board extends JPanel implements ActionListener{
     private final int[][] barricadepos = {{3, 11}, {2, 2}, {2, 3}};
     private final int[][] keypos = {{4,6},{9,4}};
     private boolean win = false;
+    public int goUp;
+    public int goRight;
+    public int goDown;
+    public int goLeft;
 
 
     public Board(){
         i = new Inventory();
         m = new Map();
         p = new Player(1,1);
-        k = new Key(4,4);
         n = new Grass();
         f = new Finish();
         w = new Wall();
@@ -145,50 +147,54 @@ public class Board extends JPanel implements ActionListener{
             }
 
 
-            if(keycode == KeyEvent.VK_W){
-                if(m.getMap(p.getTileX(),p.getTileY() - 1).equals("w")){
-                    p.move(0,0);}
-
-                /*else if(b.getcollision(p.getTileX(),p.getTileY())==true){
-                    p.move(0, -1);
-                    b.changeBarricade();
-                }*/
-
-                else if(m.getMap(p.getTileX(),p.getTileY() -1).equals("b")&&k.getAmountKey()!=1){
-                    p.move(0, 0);
+            if(keycode == KeyEvent.VK_W) {
+                goUp = 1;
+                if(m.getMap(p.getTileX(),p.getTileY() - 1).equals("w")) {
+                    goUp = 0;
+                }
+                for (Barricade barricade : barricades) {
+                    if ((p.getTileX()==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY() + 1))) && (Key.getAmountKey() != 1)) {
+                        goUp = 0;
+                    }
+                }
+                if (goUp == 0){
+                    p.move(0,0);
                 }
                 else{
                     p.move(0,-1);
                 }
-
-
-
             }
+
             if(keycode == KeyEvent.VK_S){
-                if(m.getMap(p.getTileX(),p.getTileY() + 1).equals("w")){
-                    p.move(0,0);}
-
-                else if(m.getMap(p.getTileX(),p.getTileY() +1).equals("b")&&k.getAmountKey()==1){
-                    p.move(0, 1);
+                goDown = 1;
+                if(m.getMap(p.getTileX(),p.getTileY() + 1).equals("w")) {
+                    goDown = 0;
                 }
-
-                else if(m.getMap(p.getTileX(),p.getTileY() +1).equals("b")&&k.getAmountKey()!=1){
-                    p.move(0, 0);
+                for (Barricade barricade : barricades) {
+                    if ((p.getTileX()==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY() - 1))) && (Key.getAmountKey() != 1)) {
+                        goDown = 0;
+                    }
+                }
+                if (goDown == 0){
+                    p.move(0,0);
                 }
                 else{
-                    p.move(0,1);
+                    p.move(0,+1);
                 }
 
             }
             if(keycode == KeyEvent.VK_A){
-                if(m.getMap(p.getTileX() - 1,p.getTileY()).equals("w")){
-                    p.move(0,0);}
-
-                else if(m.getMap(p.getTileX() -1 ,p.getTileY()).equals("b")&&k.getAmountKey()==1){
-                    p.move(-1, 0);
+                goLeft = 1;
+                if(m.getMap(p.getTileX()-1,p.getTileY()).equals("w")) {
+                    goLeft = 0;
                 }
-                else if(m.getMap(p.getTileX() -1 ,p.getTileY()).equals("b")&&k.getAmountKey()!=1){
-                    p.move(0, 0);
+                for (Barricade barricade : barricades) {
+                    if ((p.getTileX()-1==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY()))) && (Key.getAmountKey() != 1)) {
+                        goLeft = 0;
+                    }
+                }
+                if (goLeft == 0){
+                    p.move(0,0);
                 }
                 else{
                     p.move(-1,0);
@@ -197,23 +203,23 @@ public class Board extends JPanel implements ActionListener{
 
             }
             if(keycode == KeyEvent.VK_D){
-                if(m.getMap(p.getTileX() + 1,p.getTileY()).equals("w")){
-                    p.move(0,0);}
-
-                else if(m.getMap(p.getTileX() + 1,p.getTileY()).equals("b")&&k.getAmountKey()==1){
-                    p.move(1, 0);
+                goRight = 1;
+                if(m.getMap(p.getTileX()+1,p.getTileY()).equals("w")) {
+                    goRight = 0;
                 }
-
-                else if(m.getMap(p.getTileX() + 1,p.getTileY()).equals("b")&&k.getAmountKey()!=1){
-                    p.move(0, 0);
+                for (Barricade barricade : barricades) {
+                    if ((p.getTileX()+1==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY()))) && (Key.getAmountKey() != 1)) {
+                        goRight = 0;
+                    }
+                }
+                if (goRight == 0){
+                    p.move(0,0);
                 }
                 else{
-                    p.move(1,0);
+                    p.move(+1,0);
                 }
 
-
             }
-
         }
 
         public void keyReleased(KeyEvent e){

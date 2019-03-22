@@ -19,4 +19,5 @@ public class Inventory{
 
 >>>>>>> c427d542e075c254058aad9e6b8f634827b0faf9
     }
+
 }
