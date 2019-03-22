@@ -20,6 +20,7 @@ public class Board extends JPanel implements ActionListener{
     private Inventory i;
     private final int[][] barricadepos = {{3, 11}, {2, 2}, {2, 3}};
     private final int[][] keypos = {{4,6},{9,4}};
+    private boolean win = false;
 
 
     public Board(){
@@ -59,15 +60,15 @@ public class Board extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e){
         if(m.getMap(p.getTileX(), p.getTileY()).equals("f")){
             Message = "Winner";
+            win = true;
 
         }
 
 
-        if(m.getMap(p.getTileX(), p.getTileY()).equals("b")) {
-            if(k.getAmountKey() >= 1 ){
-
+        for (Barricade barricade : barricades) {
+            if((p.getTileX()==barricade.getTileX()) && (p.getTileY()==barricade.getTileY())){
+                barricade.changeBarricade();
             }
-
         }
 
         if(m.getMap(p.getTileX(), p.getTileY()).equals("s")) {
@@ -79,17 +80,8 @@ public class Board extends JPanel implements ActionListener{
         repaint();
     }
     private void drawObjects(Graphics g){
-        for (Barricade barricade : barricades) {
-            g.drawImage(barricade.getBarricade(), barricade.getTileX()*32, barricade.getTileY()*32, this);
-        }
-        for (Key key : keys){
-            g.drawImage(key.getKey(), key.getTileX()*32, key.getTileY()*32, this);
-        }
-    }
 
-    public void paintComponent(Graphics g){
-        super.paintComponent(g);
-
+        //Draw Grass, Walls and Finish
         for(int y = 0; y < 14; y++){
             for(int x = 0; x < 14; x++){
                 if(m.getMap(x, y).equals("g")){
@@ -104,11 +96,37 @@ public class Board extends JPanel implements ActionListener{
 
             }
         }
-        g.drawString(i.invKey(),500,50);
+        //Draw Barricades
+        for (Barricade barricade : barricades) {
+            g.drawImage(barricade.getBarricade(), barricade.getTileX()*32, barricade.getTileY()*32, this);
+        }
+
+        //Draw Keys
+        for (Key key : keys){
+            g.drawImage(key.getKey(), key.getTileX()*32, key.getTileY()*32, this);
+        }
+
+        //Draw inventory
+        //g.drawString(i.invKey(),500,50);
+
+        //Draw Player
+        g.drawImage(p.getPlayer(),p.getTileX() * 32,p.getTileY()* 32,this);
+
+
+    }
+
+    private void drawComponents(Graphics g){
         g.drawString(Message,50,50);
-        drawObjects(g);
-        g.drawImage(k.getKey(),k.getTileX() * 32, k.getTileY()*32,null);
-        g.drawImage(p.getPlayer(),p.getTileX() * 32,p.getTileY()* 32,null);
+    }
+
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        if (win == true){
+            drawComponents(g);
+        }
+        else {
+            drawObjects(g);
+        }
 
     }
 
