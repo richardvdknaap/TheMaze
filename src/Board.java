@@ -71,10 +71,14 @@ public class Board extends JPanel implements ActionListener{
             }
         }
 
-        if(m.getMap(p.getTileX(), p.getTileY()).equals("s")) {
-            k.captureKey();
-            k.changeKey();
+        for (Key key : keys) {
+            if((p.getTileX()==key.getTileX()) && (p.getTileY()==key.getTileY())){
+                key.changeKey();
+                key.captureKey();
+                System.out.println(key.getAmountKey());
+            }
         }
+
 
 
         repaint();

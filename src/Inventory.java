@@ -10,5 +10,10 @@ public class Inventory{
     public String invKey(){
        return key + Key.getAmountKey();
 
+    public static String invKey(){
+        String key = "Key: ";
+
+        return key + Key.getAmountKey();
+
     }
 }
