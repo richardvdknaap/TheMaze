@@ -36,7 +36,11 @@ public class Key {
         }
     }
 
+<<<<<<< HEAD
     public static int getAmountKey() {
+=======
+    public  static int getAmountKey() {
+>>>>>>> c427d542e075c254058aad9e6b8f634827b0faf9
         return amountKey;
     }
 
