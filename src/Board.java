@@ -107,7 +107,7 @@ public class Board extends JPanel implements ActionListener{
         }
 
         //Draw inventory
-        //g.drawString(i.invKey(),500,50);
+        g.drawString(i.invKey(),500,50);
 
         //Draw Player
         g.drawImage(p.getPlayer(),p.getTileX() * 32,p.getTileY()* 32,this);
