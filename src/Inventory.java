@@ -9,4 +9,5 @@ public class Inventory{
         return key + Key.getAmountKey();
 
     }
+
 }
