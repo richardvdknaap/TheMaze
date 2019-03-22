@@ -5,7 +5,7 @@ public class Key {
 
     private Image key;
     private int tileX, tileY;
-    private static int amountKey;
+    private int amountKey;
 
 
     public Key(int x, int y) {
@@ -36,7 +36,7 @@ public class Key {
         }
     }
 
-    public static int getAmountKey() {
+    public  int getAmountKey() {
         return amountKey;
     }
 
