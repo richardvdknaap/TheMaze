@@ -8,11 +8,15 @@ import java.util.*;
 public class Map {
 
     private Scanner m;
+    private String x;
     private String Map[] = new String[14];
+    private int level;
 
-    public Map(){
+    public Map(int level){
 
-        openFile();
+        this.level = level;
+
+        openFile(level);
         readFile();
         closeFile();
 
@@ -28,10 +32,12 @@ public class Map {
 
     }
 
-    public void openFile(){
+
+    public void openFile(int level){
 
         try {
-            m = new Scanner(new File("Sprites\\Map.txt"));
+            m = new Scanner(new File("Levels\\level"+level+".txt"));
+
         }catch(Exception e){
             System.out.println("error");
 
