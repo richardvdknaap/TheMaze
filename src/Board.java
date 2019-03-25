@@ -149,6 +149,7 @@ public class Board extends JPanel implements ActionListener{
 
             if(keycode == KeyEvent.VK_W) {
                 goUp = 1;
+                p.getPlayerA();
                 if(m.getMap(p.getTileX(),p.getTileY() - 1).equals("w")) {
                     goUp = 0;
                 }
@@ -167,6 +168,7 @@ public class Board extends JPanel implements ActionListener{
 
             if(keycode == KeyEvent.VK_S){
                 goDown = 1;
+                p.getPlayerS();
                 if(m.getMap(p.getTileX(),p.getTileY() + 1).equals("w")) {
                     goDown = 0;
                 }
@@ -185,6 +187,7 @@ public class Board extends JPanel implements ActionListener{
             }
             if(keycode == KeyEvent.VK_A){
                 goLeft = 1;
+                p.getPlayerL();
                 if(m.getMap(p.getTileX()-1,p.getTileY()).equals("w")) {
                     goLeft = 0;
                 }
@@ -204,6 +207,7 @@ public class Board extends JPanel implements ActionListener{
             }
             if(keycode == KeyEvent.VK_D){
                 goRight = 1;
+                p.getPlayerR();
                 if(m.getMap(p.getTileX()+1,p.getTileY()).equals("w")) {
                     goRight = 0;
                 }
