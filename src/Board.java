@@ -75,9 +75,10 @@ public class Board extends JPanel implements ActionListener{
 
         for (Key key : keys) {
             if((p.getTileX()==key.getTileX()) && (p.getTileY()==key.getTileY())){
-                key.changeKey();
-                key.captureKey();
-                System.out.println(key.getAmountKey());
+                if(key.getValue()!=0) {
+                    key.captureKey();
+                    key.changeKey();
+                }
             }
         }
 
@@ -154,7 +155,7 @@ public class Board extends JPanel implements ActionListener{
                     goUp = 0;
                 }
                 for (Barricade barricade : barricades) {
-                    if ((p.getTileX()==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY() + 1))) && (Key.getAmountKey() != barricade.getValue())) {
+                    if (barricade.getValue()!=0&&((p.getTileX()==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY() + 1))) &&(Key.getAmountKey() != barricade.getValue()))) {
                         goUp = 0;
                     }
                 }
@@ -173,7 +174,7 @@ public class Board extends JPanel implements ActionListener{
                     goDown = 0;
                 }
                 for (Barricade barricade : barricades) {
-                    if ((p.getTileX()==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY() - 1))) && (Key.getAmountKey() != barricade.getValue())) {
+                    if (barricade.getValue()!=0&&(p.getTileX()==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY() - 1))) && (Key.getAmountKey() != barricade.getValue())) {
                         goDown = 0;
                     }
                 }
@@ -192,7 +193,7 @@ public class Board extends JPanel implements ActionListener{
                     goLeft = 0;
                 }
                 for (Barricade barricade : barricades) {
-                    if ((p.getTileX()-1==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY()))) && (Key.getAmountKey() != barricade.getValue())) {
+                    if (barricade.getValue()!=0&&(p.getTileX()-1==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY()))) && (Key.getAmountKey() != barricade.getValue())) {
                         goLeft = 0;
                     }
                 }
@@ -212,7 +213,7 @@ public class Board extends JPanel implements ActionListener{
                     goRight = 0;
                 }
                 for (Barricade barricade : barricades) {
-                    if ((p.getTileX()+1==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY()))) && (Key.getAmountKey() != barricade.getValue())) {
+                    if (barricade.getValue()!=0&&(p.getTileX()+1==barricade.getTileX()&&(p.getTileY() == (barricade.getTileY()))) && (Key.getAmountKey() != barricade.getValue())) {
                         goRight = 0;
                     }
                 }

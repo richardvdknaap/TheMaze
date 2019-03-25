@@ -41,7 +41,9 @@ public class Key {
     }
 
     public void captureKey() {
+        if(this.value!=0) {
             amountKey = this.value;
+        }
     }
 
 
@@ -53,6 +55,10 @@ public class Key {
 
     public void changeKey(){
         this.key = new Grass().getGrass();
+        this.value = 0;
+    }
+    public int getValue(){
+        return this.value;
     }
 
 }
