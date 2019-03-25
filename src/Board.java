@@ -23,16 +23,17 @@ public class Board extends JPanel implements ActionListener{
     private boolean win = false;
     private int playerposx;
     private int playerposy;
-    public int level = 1;
+    public int level;
     public int goUp;
     public int goRight;
     public int goDown;
     public int goLeft;
 
 
-    public Board(){
+    public Board(int level){
+        this.level = level;
         i = new Inventory();
-        m = new Map(level);
+        m = new Map(this.level);
         n = new Grass();
         f = new Finish();
         w = new Wall();
@@ -46,6 +47,10 @@ public class Board extends JPanel implements ActionListener{
         initBarricade();
         initKey();
 
+    }
+
+    public void newLevel(int x){
+        level = x;
     }
     public void setLevel(){
         if (getLevel()==1){
