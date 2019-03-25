@@ -1,13 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Inventory{
+public class Inventory {
 
-    public static String invKey(){
-        String key = "Key: ";
 
+    private String key = "Key: ";
+
+
+    public String invKey() {
         return key + Key.getAmountKey();
 
-    }
 
+    }
 }
