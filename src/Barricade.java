@@ -42,6 +42,7 @@ public class Barricade{
 
     public void changeBarricade(){
             this.barricade = new Grass().getGrass();
+            this.value = 0;
     }
     public int getValue(){
         return this.value;
