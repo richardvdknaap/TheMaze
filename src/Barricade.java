@@ -5,11 +5,23 @@ public class Barricade{
 
     private Image barricade;
     private int tileX,tileY;
+    private int value;
 
-    public Barricade(int x, int y){
-        ImageIcon img = new ImageIcon("Sprites\\barricade.png");
-        barricade = img.getImage();
+    public Barricade(int x, int y, int value){
 
+        if(value == 100) {
+            ImageIcon img = new ImageIcon("Sprites\\barricade.png");
+            barricade = img.getImage();
+        }
+        if(value == 200) {
+            ImageIcon img = new ImageIcon("Sprites\\barricade 200.png");
+            barricade = img.getImage();
+        }
+        if(value == 300) {
+            ImageIcon img = new ImageIcon("Sprites\\barricade 300.png");
+            barricade = img.getImage();
+        }
+        this.value = value;
         this.tileX = x;
         this.tileY = y;
 
@@ -30,6 +42,9 @@ public class Barricade{
 
     public void changeBarricade(){
             this.barricade = new Grass().getGrass();
+    }
+    public int getValue(){
+        return this.value;
     }
 
 
