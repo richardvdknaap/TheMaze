@@ -3,10 +3,12 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.function.BinaryOperator;
 
 public class Menu {
 
+    private int level;
     public static void main(String[] args) {
         new Menu();
     }
@@ -35,12 +37,14 @@ public class Menu {
         JButton start = new JButton("Start");
         start.setSize(200,200);
         start.setPreferredSize(new Dimension(200, 60));
+        JButton levels = new JButton("Levels");
 
 
 
         // Object in Panel
         b.add(start);
         b.setBackground(Color.BLACK);
+        b.add(levels);
         p.add(titel, BorderLayout.PAGE_START);
         p.setBackground(Color.BLACK);
 
@@ -49,14 +53,23 @@ public class Menu {
 
         class ClickListerner implements ActionListener{
 
-            public void actionPerformed(ActionEvent event){
-                new Maze();
-                m.dispose();
+
+            public void actionPerformed(ActionEvent event) {
+                if(event.getSource()==start) {
+                    level = 1;
+                    new Maze(level);
+                    m.dispose();
+                }
+                if (event.getSource()==levels) {
+                    new Levels();
+                    m.dispose();
+                }
             }
         }
 
         ActionListener listener = new ClickListerner();
         start.addActionListener(listener);
+        levels.addActionListener(listener);
 
         m.setVisible(true);
 
