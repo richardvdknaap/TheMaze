@@ -18,13 +18,11 @@ public class Board extends JPanel implements ActionListener{
     private Grass n;
     private Finish f;
     private Inventory i;
-    private Maze q;
     private int[][] barricadepos;
     private int[][] keypos;
     private boolean win = false;
     private int playerposx;
     private int playerposy;
-    public int level = 3;
     public int level;
     public int goUp;
     public int goRight;
@@ -39,7 +37,6 @@ public class Board extends JPanel implements ActionListener{
         n = new Grass();
         f = new Finish();
         w = new Wall();
-        q = new Maze(this.level);
 
 
         timer = new Timer(25, this);
@@ -103,24 +100,32 @@ public class Board extends JPanel implements ActionListener{
 
 
     public void actionPerformed(ActionEvent e){
-        if(m.getMap(p.getTileX(), p.getTileY()).equals("f")){
-            new Endgame();
+        if(p!=null) {
+            if (m.getMap(p.getTileX(), p.getTileY()).equals("f")) {
+                p = null;
+                Maze.close();
+                new Endgame();
 
 
+            }
         }
 
 
         for (Barricade barricade : barricades) {
-            if((p.getTileX()==barricade.getTileX()) && (p.getTileY()==barricade.getTileY())){
-                barricade.changeBarricade();
+            if(p!=null) {
+                if ((p.getTileX() == barricade.getTileX()) && (p.getTileY() == barricade.getTileY())) {
+                    barricade.changeBarricade();
+                }
             }
         }
 
         for (Key key : keys) {
-            if((p.getTileX()==key.getTileX()) && (p.getTileY()==key.getTileY())){
-                if(key.getValue()!=0) {
-                    key.captureKey();
-                    key.changeKey();
+            if(p!=null) {
+                if ((p.getTileX() == key.getTileX()) && (p.getTileY() == key.getTileY())) {
+                    if (key.getValue() != 0) {
+                        key.captureKey();
+                        key.changeKey();
+                    }
                 }
             }
         }
