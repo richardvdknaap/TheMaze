@@ -24,12 +24,12 @@ public class Board extends JPanel implements ActionListener{
     private boolean win = false;
     private int playerposx;
     private int playerposy;
-    public int level = 3;
     public int level;
     public int goUp;
     public int goRight;
     public int goDown;
     public int goLeft;
+
 
 
     public Board(int level){
@@ -39,8 +39,6 @@ public class Board extends JPanel implements ActionListener{
         n = new Grass();
         f = new Finish();
         w = new Wall();
-        q = new Maze(this.level);
-
 
         timer = new Timer(25, this);
         addKeyListener(new Al());
@@ -104,6 +102,8 @@ public class Board extends JPanel implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
         if(m.getMap(p.getTileX(), p.getTileY()).equals("f")){
+            p = null;
+            
             new Endgame();
 
 
