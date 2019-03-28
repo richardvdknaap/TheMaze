@@ -101,10 +101,11 @@ public class Board extends JPanel implements ActionListener{
 
 
     public void actionPerformed(ActionEvent e){
+        
         if(m.getMap(p.getTileX(), p.getTileY()).equals("f")){
             p = null;
-            
             new Endgame();
+
 
 
         }
