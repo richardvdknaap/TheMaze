@@ -26,18 +26,23 @@ public class Menu {
 
         // Label
         JLabel titel = new JLabel("Sleutelbarricade The Game!\n");
+        titel.setForeground(Color.white);
         titel.setFont(new Font("Serif", Font.PLAIN, 50));
         titel.repaint();
 
 
         // Button
         JButton start = new JButton("Start");
+        start.setSize(200,200);
+        start.setPreferredSize(new Dimension(200, 60));
 
 
 
         // Object in Panel
         b.add(start);
+        b.setBackground(Color.BLACK);
         p.add(titel, BorderLayout.PAGE_START);
+        p.setBackground(Color.BLACK);
 
 
         // Button event

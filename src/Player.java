@@ -61,7 +61,7 @@ public class Player {
     }
 
     public Image getPlayerS() {
-        ImageIcon img5 = new ImageIcon("Sprites\\Guy2.png");
+        ImageIcon img5 = new ImageIcon("Sprites\\Guy26.png");
         player = img5.getImage();
         return player;
 

@@ -15,4 +15,6 @@ public class Maze {
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
+
 }
