@@ -10,6 +10,10 @@ public class Endgame {
         JFrame g = new JFrame();
         JPanel p = new JPanel();
 
+        // Panel
+        g.add(p, BorderLayout.CENTER);
+
+
         // Scherm
         g.setTitle("SleutelBarricade");
         g.setSize(800,485);
@@ -26,6 +30,8 @@ public class Endgame {
         g.add(winner, BorderLayout.NORTH);
         g.add(label);
 
+        p.add(label);
+        g.add(p);
 
         g.setVisible(true);
 
