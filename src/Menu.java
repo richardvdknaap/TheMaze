@@ -3,13 +3,15 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Menu {
-
     private int level;
-    public static void main(String[] args) {
+
+
+    public static void main(String[] args){
         new Menu();
     }
 
     public Menu(){
+
         JFrame m = new JFrame();
         JPanel p = new JPanel();
         JPanel b = new JPanel();
@@ -55,28 +57,7 @@ public class Menu {
 
         // Button event
 
-        class ClickListerner implements ActionListener, KeyListener {
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-
-                int keycode = e.getKeyCode();
-
-                if (keycode == KeyEvent.VK_ESCAPE) {
-                    System.out.println("YOOOO");
-                    System.exit(0);
-                }
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-
-            }
+        class ClickListerner implements ActionListener {
 
             public void actionPerformed(ActionEvent event) {
 
@@ -102,6 +83,6 @@ public class Menu {
 
         m.setVisible(true);
 
-
     }
+
 }
