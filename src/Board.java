@@ -27,6 +27,7 @@ public class Board extends JPanel implements ActionListener{
     private int playerposx;
     private int playerposy;
     public int level = 3;
+    public int level;
     public int goUp;
     public int goRight;
     public int goDown;
