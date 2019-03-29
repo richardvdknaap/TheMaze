@@ -33,23 +33,23 @@ public class Menu {
         titel.setFont(new Font("Serif", Font.PLAIN, 50));
         titel.repaint();
 
-
-        // Button
-        //JButton start = new JButton();
-        //start.setSize(50,50);
-        //start.setPreferredSize(new Dimension(100, 60));
-        //JButton levels = new JButton("Levels");
-        //levels.setSize(200,200);
-        //levels.setPreferredSize(new Dimension(100, 60));
-        JButton exit = new JButton("Quit Game");
-        exit.setSize(100,200);
-        exit.setPreferredSize(new Dimension(100, 60));
-
         // LABEL START
         JLabel start = new JLabel();
         start.setIcon(new ImageIcon("Sprites\\start_goed1.png"));
-        start.setSize(new Dimension(299,196));
+        start.setSize(new Dimension(300,86));
 
+        // LABEL LEVELS
+        JLabel levels = new JLabel();
+        levels.setIcon(new ImageIcon("Sprites\\Levels.png"));
+        levels.setSize(300,86);
+
+        // LABEL EXIT
+        JLabel exit = new JLabel();
+        exit.setIcon(new ImageIcon("Sprites\\Exit.png"));
+        exit.setSize(300,86);
+
+
+        // MOUSELISTENER VOOR START
         start.addMouseListener(new MouseAdapter()
         {
             public void mouseClicked(MouseEvent e)
@@ -68,10 +68,40 @@ public class Menu {
             }
         });
 
-        // LABEL LEVELS
+        // MOUSELISTENER VOOR LEVELS
+        levels.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
+                new Levels();
+                m.dispose();
 
-        JLabel levels = new JLabel();
-        levels.setIcon(new ImageIcon("Sprites\\"));
+            }
+            public void mouseEntered(MouseEvent e) {
+                levels.setIcon(new ImageIcon("Sprites\\Levels_hover.gif"));
+
+            }
+            public void mouseExited(MouseEvent e){
+                levels.setIcon(new ImageIcon("Sprites\\Levels.png"));
+            }
+        });
+
+        // MOUSELISTENER VOOR EXIT
+        exit.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
+                System.exit(0);
+
+            }
+            public void mouseEntered(MouseEvent e) {
+                exit.setIcon(new ImageIcon("Sprites\\Exit_hover.gif"));
+
+            }
+            public void mouseExited(MouseEvent e){
+                exit.setIcon(new ImageIcon("Sprites\\Exit.png"));
+            }
+        });
 
 
         // Object in Panel
@@ -82,28 +112,6 @@ public class Menu {
 
 
         // Button event
-
-        class ClickListerner implements ActionListener {
-
-            public void actionPerformed(ActionEvent event) {
-
-                if(event.getSource()==start) {
-                    level = 1;
-                    new Maze(level);
-                    m.dispose();
-                }
-                if (event.getSource()==levels) {
-                    new Levels();
-                    m.dispose();
-                }
-                if (event.getSource()==exit) {
-                    System.exit(0);
-                }
-            }
-        }
-
-        ActionListener listener = new ClickListerner();
-        exit.addActionListener(listener);
 
         m.setVisible(true);
 
