@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.imageio.ImageIO;
 
 public class Menu {
     private int level;
@@ -20,39 +21,64 @@ public class Menu {
         m.setTitle("SleutelBarricade");
         m.setSize(800,485);
         m.add(p, BorderLayout.NORTH);
-        m.add(b, BorderLayout.CENTER);
+        m.add(b);
         m.setLocationRelativeTo(null);
         m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        b.setLayout(new GridLayout(3, 1));
+
 
 
         // Label
         JLabel titel = new JLabel("Sleutelbarricade The Game!\n");
-        titel.setForeground(Color.white);
+        titel.setForeground(Color.BLACK);
         titel.setFont(new Font("Serif", Font.PLAIN, 50));
         titel.repaint();
 
 
         // Button
-        JButton start = new JButton("Start");
-        start.setSize(200,200);
-        start.setPreferredSize(new Dimension(200, 60));
-        JButton levels = new JButton("Levels");
-        levels.setSize(200,200);
-        levels.setPreferredSize(new Dimension(200, 60));
+        //JButton start = new JButton();
+        //start.setSize(50,50);
+        //start.setPreferredSize(new Dimension(100, 60));
+        //JButton levels = new JButton("Levels");
+        //levels.setSize(200,200);
+        //levels.setPreferredSize(new Dimension(100, 60));
         JButton exit = new JButton("Quit Game");
-        exit.setSize(200,200);
-        exit.setPreferredSize(new Dimension(200, 60));
+        exit.setSize(100,200);
+        exit.setPreferredSize(new Dimension(100, 60));
 
+        // LABEL START
+        JLabel start = new JLabel();
+        start.setIcon(new ImageIcon("Sprites\\start_goed1.png"));
+        start.setSize(new Dimension(299,196));
+
+        start.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
+                level = 1;
+                new Maze(level);
+                m.dispose();
+
+            }
+            public void mouseEntered(MouseEvent e) {
+                start.setIcon(new ImageIcon("Sprites\\ezgif.com-resize.gif"));
+
+            }
+            public void mouseExited(MouseEvent e){
+                start.setIcon(new ImageIcon("Sprites\\start_goed1.png"));
+            }
+        });
+
+        // LABEL LEVELS
+
+        JLabel levels = new JLabel();
+        levels.setIcon(new ImageIcon("Sprites\\"));
 
 
         // Object in Panel
         b.add(start);
-        b.setBackground(Color.BLACK);
         b.add(levels);
         b.add(exit);
         p.add(titel, BorderLayout.PAGE_START);
-        p.setBackground(Color.BLACK);
 
 
         // Button event
@@ -77,8 +103,6 @@ public class Menu {
         }
 
         ActionListener listener = new ClickListerner();
-        start.addActionListener(listener);
-        levels.addActionListener(listener);
         exit.addActionListener(listener);
 
         m.setVisible(true);

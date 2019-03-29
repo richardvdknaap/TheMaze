@@ -23,6 +23,13 @@ public class Endgame {
         // label
         Icon icon = new ImageIcon("Sprites\\endgame.gif");;
         JLabel label = new JLabel(icon);
+
+        // label
+        JLabel winner = new JLabel("Winner");
+        winner.setSize(new Dimension(200,200));
+        g.add(winner, BorderLayout.NORTH);
+        g.add(label);
+
         p.add(label);
         g.add(p);
 
