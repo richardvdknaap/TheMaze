@@ -35,7 +35,7 @@ public class Menu {
 
         // LABEL START
         JLabel start = new JLabel();
-        start.setIcon(new ImageIcon("Sprites\\start_goed1.png"));
+        start.setIcon(new ImageIcon("Sprites\\start_goeie_goeie_normaal.png"));
         start.setSize(new Dimension(300,86));
 
         // LABEL LEVELS
@@ -60,11 +60,11 @@ public class Menu {
 
             }
             public void mouseEntered(MouseEvent e) {
-                start.setIcon(new ImageIcon("Sprites\\ezgif.com-resize.gif"));
+                start.setIcon(new ImageIcon("Sprites\\start_goeie_goeie_hover.gif"));
 
             }
             public void mouseExited(MouseEvent e){
-                start.setIcon(new ImageIcon("Sprites\\start_goed1.png"));
+                start.setIcon(new ImageIcon("Sprites\\start_goeie_goeie_normaal.png"));
             }
         });
 
