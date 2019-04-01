@@ -11,7 +11,6 @@ public class Board extends JPanel implements ActionListener{
     private Timer timer;
     private Player p;
     private Map m;
-    private String Message = "";
     private List<Barricade> barricades;
     private List<Key> keys;
     private Wall w;
@@ -51,9 +50,7 @@ public class Board extends JPanel implements ActionListener{
     }
 
 
-    public void newLevel(int x){
-        level = x;
-    }
+
     public void setLevel(){
         if (getLevel()==1){
             barricadepos = new int[][]{{1, 1, 100}, {1, 2, 100}, {1, 3, 100}, {1, 4, 100}, {1, 5, 100}, {1, 6, 100}, {1, 7, 200}, {1, 8, 100}, {1, 9, 100}, {1, 10, 100}, {1, 11, 100}, {1, 12, 100}, {2, 1, 200}, {2, 7, 200}, {2, 12, 200}, {3, 1, 200}, {3, 2, 200}, {3, 4, 100}, {3, 5, 100}, {3, 6, 100}, {3, 8, 200}, {3, 9, 200}, {3, 10, 200}, {3, 12, 200}, {4, 2, 200}, {4, 4, 100}, {4, 10, 200}, {4, 12, 200}, {5, 2, 200}, {5, 4, 100}, {5, 9, 200}, {5, 10, 200}, {5, 12, 200}, {6, 2, 200}, {6, 4, 100}, {6, 5, 100}, {6, 9, 200}, {6, 10, 200}, {6, 12, 200}, {7, 10, 200}, {7, 12, 200}, {8, 2, 200}, {8, 3, 200}, {8, 4, 100}, {8, 5, 200}, {8, 6, 100}, {8, 12, 200}, {9, 2, 200}, {9, 9, 100}, {9, 10, 100}, {9, 11, 100}, {9, 12, 100}, {10, 2, 200}, {11, 10, 300}, {11, 11, 300}, {11, 12, 300}, {12, 2, 100}, {12, 3, 100}, {12, 4, 100}, {12, 5, 100}, {12, 6, 100}};
@@ -135,9 +132,6 @@ public class Board extends JPanel implements ActionListener{
         repaint();
     }
 
-    private void drawComponents(Graphics g){
-        g.drawString(Message,50,50);
-    }
     private void drawObjects(Graphics g){
 
         //Draw Grass, Walls and Finish
@@ -171,6 +165,9 @@ public class Board extends JPanel implements ActionListener{
         //Draw Player
         g.drawImage(p.getPlayer(),p.getTileX() * 32,p.getTileY()* 32,this);
 
+        // PAUSE
+
+
 
     }
 
@@ -186,6 +183,7 @@ public class Board extends JPanel implements ActionListener{
         }
 
     }
+
 
     public class Al extends KeyAdapter{
 
