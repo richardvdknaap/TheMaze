@@ -2,17 +2,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-public class Endgame {
+
+public class Pause {
     private int level;
 
-    public Endgame(int levels) {
+    public Pause(int levels) {
         this.level = levels;
         JFrame g = new JFrame();
         JPanel p = new JPanel();
 
-        // Panel
+        //PANEL
         g.add(p, BorderLayout.CENTER);
-
 
         // Scherm
         g.setTitle("SleutelBarricade");
@@ -20,32 +20,32 @@ public class Endgame {
         g.setLocationRelativeTo(null);
         g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // LABEL START
-        JLabel next = new JLabel();
-        next.setIcon(new ImageIcon("Sprites\\Next.png"));
-        next.setSize(new Dimension(300,86));
+        // LABEL RESUME
+        JLabel resume = new JLabel();
+        resume.setIcon(new ImageIcon("Sprites\\Resume.png"));
+        resume.setSize(new Dimension(300,86));
 
-        // LABEL LEVELS
+        // LABEL MENU
         JLabel menu = new JLabel();
         menu.setIcon(new ImageIcon("Sprites\\Menu.png"));
         menu.setSize(300,86);
 
-        // MOUSELISTENER VOOR NEXT
-        next.addMouseListener(new MouseAdapter()
+
+        // MOUSELISTENER VOOR RESUME
+        resume.addMouseListener(new MouseAdapter()
         {
             public void mouseClicked(MouseEvent e)
             {
-                level ++;
-                new Maze(level);
+                Maze.cont();
                 g.dispose();
 
             }
             public void mouseEntered(MouseEvent e) {
-                next.setIcon(new ImageIcon("Sprites\\Next_hover.gif"));
+                resume.setIcon(new ImageIcon("Sprites\\Resume_Hover.gif"));
 
             }
             public void mouseExited(MouseEvent e){
-                next.setIcon(new ImageIcon("Sprites\\Next.png"));
+                resume.setIcon(new ImageIcon("Sprites\\Resume.png"));
             }
         });
 
@@ -66,14 +66,12 @@ public class Endgame {
                 menu.setIcon(new ImageIcon("Sprites\\Menu.png"));
             }
         });
-        p.add(next);
+        p.add(resume);
         p.add(menu);
 
         g.add(p);
 
         g.setVisible(true);
-
-
-
     }
+
 }

@@ -193,8 +193,9 @@ public class Board extends JPanel implements ActionListener{
 
             int keycode = e.getKeyCode();
 
-            if(keycode == KeyEvent.VK_ESCAPE){
-                System.exit(0);
+            if(keycode == KeyEvent.VK_ESCAPE || keycode == KeyEvent.VK_P){
+                Maze.pause();
+                new Pause(level);
             }
 
 

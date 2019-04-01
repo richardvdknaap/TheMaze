@@ -19,6 +19,12 @@ public class Maze {
         f.dispose();
     }
 
+    public static void pause(){
+        f.setVisible(false);
+    }
+    public static void cont(){
+        f.setVisible(true);
+    }
 
 
 
