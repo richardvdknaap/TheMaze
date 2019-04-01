@@ -165,6 +165,9 @@ public class Board extends JPanel implements ActionListener{
         //Draw Player
         g.drawImage(p.getPlayer(),p.getTileX() * 32,p.getTileY()* 32,this);
 
+        // PAUSE
+
+
 
     }
 
@@ -180,6 +183,7 @@ public class Board extends JPanel implements ActionListener{
         }
 
     }
+
 
     public class Al extends KeyAdapter{
 

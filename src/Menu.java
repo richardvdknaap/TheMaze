@@ -1,10 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import javax.imageio.ImageIO;
 
 public class Menu {
     private int level;
+
 
 
     public static void main(String[] args){
@@ -15,13 +15,13 @@ public class Menu {
 
         JFrame m = new JFrame();
         JPanel p = new JPanel();
-        JPanel b = new JPanel();
+        JPanel b = new JPanel(new GridBagLayout());
 
         // Scherm
         m.setTitle("SleutelBarricade");
-        m.setSize(800,485);
+        m.setSize(850,500);
         m.add(p, BorderLayout.NORTH);
-        m.add(b);
+        m.add(b, BorderLayout.CENTER);
         m.setLocationRelativeTo(null);
         m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -47,6 +47,7 @@ public class Menu {
         JLabel exit = new JLabel();
         exit.setIcon(new ImageIcon("Sprites\\Exit.png"));
         exit.setSize(300,86);
+
 
 
         // MOUSELISTENER VOOR START
@@ -105,10 +106,22 @@ public class Menu {
 
 
         // Object in Panel
-        b.add(start);
-        b.add(levels);
-        b.add(exit);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(15,15,15,15);
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        b.add(start , gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        b.add(levels , gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+
+        b.add(exit, gbc);
+
         p.add(titel, BorderLayout.PAGE_START);
+
 
 
         // Button event
