@@ -25,6 +25,11 @@ public class Pause {
         resume.setIcon(new ImageIcon("Sprites\\Resume.png"));
         resume.setSize(new Dimension(300,86));
 
+        // LABEL RESTART
+        JLabel restart = new JLabel();
+        restart.setIcon(new ImageIcon("Sprites\\Restart.png"));
+        restart.setSize(new Dimension(300,86));
+
         // LABEL MENU
         JLabel menu = new JLabel();
         menu.setIcon(new ImageIcon("Sprites\\Menu.png"));
@@ -49,6 +54,25 @@ public class Pause {
             }
         });
 
+        // MOUSELISTENER VOOR RESTART
+        restart.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
+                Maze.close();
+                g.dispose();
+                new Maze(level);
+
+            }
+            public void mouseEntered(MouseEvent e) {
+                restart.setIcon(new ImageIcon("Sprites\\Restart_hover.gif"));
+
+            }
+            public void mouseExited(MouseEvent e){
+                restart.setIcon(new ImageIcon("Sprites\\Restart.png"));
+            }
+        });
+
         // MOUSELISTENER VOOR MENU
         menu.addMouseListener(new MouseAdapter()
         {
@@ -67,6 +91,7 @@ public class Pause {
             }
         });
         p.add(resume);
+        p.add(restart);
         p.add(menu);
 
         g.add(p);
