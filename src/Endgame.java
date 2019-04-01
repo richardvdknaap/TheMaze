@@ -21,7 +21,7 @@ public class Endgame {
         g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // label
-        Icon icon = new ImageIcon("Sprites\\endgame.gif");;
+        Icon icon = new ImageIcon("Sprites\\endgame.gif");
         JLabel label = new JLabel(icon);
 
         // label
