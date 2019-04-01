@@ -27,7 +27,7 @@ public class Menu {
 
 
 
-        // Label
+        // Label TITEL
         JLabel titel = new JLabel("Sleutelbarricade The Game!\n");
         titel.setForeground(Color.BLACK);
         titel.setFont(new Font("Serif", Font.PLAIN, 50));

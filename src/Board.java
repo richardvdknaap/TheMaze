@@ -104,7 +104,7 @@ public class Board extends JPanel implements ActionListener{
             if (m.getMap(p.getTileX(), p.getTileY()).equals("f")) {
                 p = null;
                 Maze.close();
-                new Endgame();
+                new Endgame(this.level);
 
 
             }

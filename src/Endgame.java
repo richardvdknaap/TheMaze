@@ -1,12 +1,16 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Endgame {
+    private int level;
 
-    public Endgame() {
+    public Endgame(int levels) {
+        this.level = levels;
         JFrame g = new JFrame();
         JPanel p = new JPanel();
 
@@ -20,17 +24,55 @@ public class Endgame {
         g.setLocationRelativeTo(null);
         g.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // label
-        Icon icon = new ImageIcon("Sprites\\endgame.gif");;
-        JLabel label = new JLabel(icon);
+        // LABEL START
+        JLabel next = new JLabel();
+        next.setIcon(new ImageIcon("Sprites\\Next.png"));
+        next.setSize(new Dimension(300,86));
 
-        // label
-        JLabel winner = new JLabel("Winner");
-        winner.setSize(new Dimension(200,200));
-        g.add(winner, BorderLayout.NORTH);
-        g.add(label);
+        // LABEL LEVELS
+        JLabel menu = new JLabel();
+        menu.setIcon(new ImageIcon("Sprites\\Menu.png"));
+        menu.setSize(300,86);
 
-        p.add(label);
+        // MOUSELISTENER VOOR NEXT
+        next.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
+                level ++;
+                new Maze(level);
+                g.dispose();
+
+            }
+            public void mouseEntered(MouseEvent e) {
+                next.setIcon(new ImageIcon("Sprites\\Next_hover.gif"));
+
+            }
+            public void mouseExited(MouseEvent e){
+                next.setIcon(new ImageIcon("Sprites\\Next.png"));
+            }
+        });
+
+        // MOUSELISTENER VOOR MENU
+        menu.addMouseListener(new MouseAdapter()
+        {
+            public void mouseClicked(MouseEvent e)
+            {
+                new Menu();
+                g.dispose();
+
+            }
+            public void mouseEntered(MouseEvent e) {
+                menu.setIcon(new ImageIcon("Sprites\\Menu_hover.gif"));
+
+            }
+            public void mouseExited(MouseEvent e){
+                menu.setIcon(new ImageIcon("Sprites\\Menu.png"));
+            }
+        });
+        p.add(next);
+        p.add(menu);
+
         g.add(p);
 
         g.setVisible(true);
