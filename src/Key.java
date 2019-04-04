@@ -53,6 +53,10 @@ public class Key {
         return amountKey;
     }
 
+    public static void resetKey(){
+        amountKey =0;
+    }
+
     public void changeKey(){
         this.key = new Grass().getGrass();
         this.value = 0;
