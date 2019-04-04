@@ -3,7 +3,9 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Menu {
+
     private int level;
+    private Color bg = new Color(0x45220e);
 
 
 
@@ -19,10 +21,11 @@ public class Menu {
 
         // Scherm
         m.setTitle("SleutelBarricade");
-        m.setSize(850,500);
+        m.setSize(800,485);
         m.add(p, BorderLayout.NORTH);
         m.add(b, BorderLayout.CENTER);
         m.setLocationRelativeTo(null);
+        m.setResizable(false);
         m.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
@@ -117,9 +120,10 @@ public class Menu {
         b.add(levels , gbc);
         gbc.gridx = 0;
         gbc.gridy = 2;
-
         b.add(exit, gbc);
 
+        b.setBackground(bg);
+        p.setBackground(bg);
         p.add(titel, BorderLayout.PAGE_START);
 
 

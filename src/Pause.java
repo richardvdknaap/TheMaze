@@ -5,11 +5,12 @@ import java.awt.event.MouseEvent;
 
 public class Pause {
     private int level;
+    private Color bg = new Color(0x45220e);
 
     public Pause(int levels) {
         this.level = levels;
         JFrame g = new JFrame();
-        JPanel p = new JPanel();
+        JPanel p = new JPanel(new GridBagLayout());
 
         //PANEL
         g.add(p, BorderLayout.CENTER);
@@ -90,10 +91,17 @@ public class Pause {
                 menu.setIcon(new ImageIcon("Sprites\\Menu.png"));
             }
         });
-        p.add(resume);
-        p.add(restart);
-        p.add(menu);
 
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(15,15,15,15);
+        gbc.gridx=0;
+        gbc.gridy=0;
+        p.add(resume,gbc);
+        gbc.gridy=1;
+        p.add(restart,gbc);
+        gbc.gridy=2;
+        p.add(menu,gbc);
+        p.setBackground(bg);
         g.add(p);
 
         g.setVisible(true);

@@ -12,6 +12,7 @@ public class Maze {
         f.add(new Board(this.level));
         f.setSize(800,485);
         f.setLocationRelativeTo(null);
+        f.setResizable(false);
         f.setVisible(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
