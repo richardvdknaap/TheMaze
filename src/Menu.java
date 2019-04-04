@@ -31,10 +31,8 @@ public class Menu {
 
 
         // Label TITEL
-        JLabel titel = new JLabel("Sleutelbarricade The Game!\n");
-        titel.setForeground(Color.BLACK);
-        titel.setFont(new Font("Serif", Font.PLAIN, 50));
-        titel.repaint();
+        JLabel title = new JLabel(new ImageIcon("Sprites\\Title.gif"));
+        title.setSize(509,86);
 
         // LABEL START
         JLabel start = new JLabel();
@@ -111,20 +109,21 @@ public class Menu {
         // Object in Panel
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(15,15,15,15);
-
         gbc.gridx = 0;
         gbc.gridy = 0;
-        b.add(start , gbc);
+        b.add(title,gbc);
         gbc.gridx = 0;
         gbc.gridy = 1;
-        b.add(levels , gbc);
+        b.add(start , gbc);
         gbc.gridx = 0;
         gbc.gridy = 2;
+        b.add(levels , gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 3;
         b.add(exit, gbc);
 
         b.setBackground(bg);
         p.setBackground(bg);
-        p.add(titel, BorderLayout.PAGE_START);
 
 
 
